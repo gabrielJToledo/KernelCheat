@@ -1,0 +1,80 @@
+;
+; KernelCheat.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System ; TODO: specify appropriate Class
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=KernelCheat.cat
+DriverVer = 02/24/2024,20.3.5.464
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+KernelCheat_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+KernelCheat.sys  = 1,,
+;
+
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%KernelCheat.DeviceDesc%=KernelCheat_Device, Root\KernelCheat ; TODO: edit hw-id
+
+[KernelCheat_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+KernelCheat.sys
+
+;-------------- Service installation
+[KernelCheat_Device.NT.Services]
+AddService = KernelCheat,%SPSVCINST_ASSOCSERVICE%, KernelCheat_Service_Inst
+
+; -------------- KernelCheat driver install sections
+[KernelCheat_Service_Inst]
+DisplayName    = %KernelCheat.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\KernelCheat.sys
+
+;
+;--- KernelCheat_Device Coinstaller installation ------
+;
+
+[KernelCheat_Device.NT.CoInstallers]
+AddReg=KernelCheat_Device_CoInstaller_AddReg
+CopyFiles=KernelCheat_Device_CoInstaller_CopyFiles
+
+[KernelCheat_Device_CoInstaller_AddReg]
+;
+
+
+[KernelCheat_Device_CoInstaller_CopyFiles]
+;
+
+
+[KernelCheat_Device.NT.Wdf]
+KmdfService =  KernelCheat, KernelCheat_wdfsect
+[KernelCheat_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "KernelCheat Installation Disk"
+KernelCheat.DeviceDesc = "KernelCheat Device"
+KernelCheat.SVCDESC = "KernelCheat Service"

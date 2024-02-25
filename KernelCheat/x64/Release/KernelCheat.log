@@ -1,0 +1,22 @@
+﻿  Building 'KernelCheat' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Release\KernelCheat.inf
+  Stamping [Version] section with DriverVer=02/24/2024,20.3.5.464
+  KernelCheat.vcxproj -> C:\Users\gabri\source\repos\KernelCheat\x64\Release\KernelCheat.sys
+  Done Adding Additional Store
+  Successfully signed: C:\Users\gabri\source\repos\KernelCheat\x64\Release\KernelCheat.sys
+  
+  Driver is 'Universal'.
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  C:\Users\gabri\source\repos\KernelCheat\x64\Release\KernelCheat\kernelcheat.cat
+  Done Adding Additional Store
+  Successfully signed: C:\Users\gabri\source\repos\KernelCheat\x64\Release\KernelCheat\kernelcheat.cat
+  

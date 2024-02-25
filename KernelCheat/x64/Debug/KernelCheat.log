@@ -1,0 +1,2 @@
+﻿  Building 'KernelCheat' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(504,5): error MSB8040: as bibliotecas com Mitigações de Spectre são necessárias para este projeto. Instale-as usando o instalador do Visual Studio (guia Componentes individuais) para todas as arquiteturas e os conjuntos de ferramentas que estão sendo usados. Saiba mais: https://aka.ms/Ofhn4c
